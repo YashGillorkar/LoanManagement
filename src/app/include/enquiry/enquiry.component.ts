@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { EnquiryService } from '../../services/enquiry.service';
 
 @Component({
   selector: 'app-enquiry',
@@ -10,7 +11,7 @@ export class EnquiryComponent implements OnInit {
 
   enquiryForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private enquiryService:EnquiryService) { }
 
   ngOnInit(): void {
     this.enquiryForm = this.fb.group({
@@ -27,7 +28,14 @@ export class EnquiryComponent implements OnInit {
 
   onSubmit() {
     if (this.enquiryForm.valid) {
-      console.log(this.enquiryForm.value);
+      this.enquiryService.postEnquiry(this.enquiryForm.value).subscribe(
+        response => {
+          console.log('Enquiry submitted successfully', response);
+        },
+        error => {
+          console.error('Error submitting enquiry', error);
+        }
+      );
     } else {
       console.log('Form is invalid');
     }

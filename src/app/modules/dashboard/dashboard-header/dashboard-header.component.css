@@ -36,3 +36,7 @@ hr {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* CSS */
+.icon-color {
+  color: white; /* Or any color that contrasts well with the black background */
+}

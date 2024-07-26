@@ -1,1 +1,49 @@
-<p>add-enquiry works!</p>
+
+<div class="container">
+    <h2>Loan Application Form</h2>
+  
+    <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" formControlName="first_Name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" formControlName="middle_Name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" formControlName="last_Name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="emailId">Email Id:</label>
+        <input type="email" id="emailId" formControlName="applicant_EmailId" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" id="contactNumber" formControlName="contact_Number" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" formControlName="age" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="alternateContactNumber">Alternate Contact Number:</label>
+        <input type="text" id="alternateContactNumber" formControlName="alternateContactNumber" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="panCard">PAN Card:</label>
+        <input type="text" id="panCard" formControlName="panCardNumber" required>
+      </div>
+  
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  

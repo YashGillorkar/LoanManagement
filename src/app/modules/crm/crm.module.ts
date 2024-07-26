@@ -5,6 +5,8 @@ import { CRMRoutingModule } from './crm-routing.module';
 import { AddEnquiryComponent } from './add-enquiry/add-enquiry.component';
 import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
 import { ViewVerfiedEnquiresComponent } from './view-verfied-enquires/view-verfied-enquires.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { ViewVerfiedEnquiresComponent } from './view-verfied-enquires/view-verfi
   ],
   imports: [
     CommonModule,
-    CRMRoutingModule
-  ]
+    CRMRoutingModule,
+    ReactiveFormsModule
+    ]
 })
 export class CRMModule { }
