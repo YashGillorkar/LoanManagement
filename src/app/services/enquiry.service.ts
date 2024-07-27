@@ -21,6 +21,10 @@ export class EnquiryService {
     return this.http.get(`${this.baseUrl}/getAllData`);
   }
 
+  getAllEnquiriesByStatus(status:any) {
+    return this.http.get(`${this.baseUrl}/getAlldataByStatus/${status}`);
+  }
+
   // Method to get a single enquiry by ID
   getSingleData(id: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/getSingleData/${id}`);
@@ -45,4 +49,19 @@ export class EnquiryService {
   getCibilByPAN(panCardNumber: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/getCibilByPAN/${panCardNumber}`);
   }
+
+
+
+  updateEnquiryStatus(enquiryId: string , enquiryStatus: string){
+    return this.http.put<ResponseDto>(`${this.baseUrl}/UpdateStatus/${enquiryId}/${enquiryStatus}`,{});
+  }
+
+  enquiryApprovedStatus(enquiryId: string , enquiryStatus: string){
+    return this.http.put<ResponseDto>(`${this.baseUrl}/loanApproval/${enquiryId}/${enquiryStatus}`,{});
+  }
+
+  enquiryRejectedStatus(enquiryId: string , enquiryStatus: string){
+    return this.http.put<ResponseDto>(`${this.baseUrl}/loanRejected/${enquiryId}/${enquiryStatus}`,{});
+  }
+
 }

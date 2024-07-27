@@ -12,10 +12,7 @@
         <th>Alternate Contact</th>
         <th>Age</th>
         <th>PAN</th>
-        <th>Cibil ID</th>
-        <th>Cibil Score</th>
-        <th>Remark</th>
-        <th>Applicable</th>
+        <th>Enquiry Status</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -30,13 +27,10 @@
         <td>{{ enquiry.alternateContactNumber }}</td>
         <td>{{ enquiry.age }}</td>
         <td>{{ enquiry.panCardNumber }}</td>
-        <td>{{ enquiry.cibilDetails.cibil_Id }}</td>
-        <td>{{ enquiry.cibilDetails.cibil_score }}</td>
-        <td>{{ enquiry.cibilDetails.remark }}</td>
-        <td>{{ enquiry.cibilDetails.isApplicable ? 'No' : 'Yes' }}</td>
+        <td>{{enquiry.enquiryStatus}}</td>
         <td>
-          <button (click)="editEnquiry(enquiry)">Edit</button>
-          <button (click)="deleteEnquiry(enquiry.id)">Delete</button>
+          <button (click)="editEnquiry(enquiry.enquiry_Id)">Send To OE</button>
+          <button (click)="deleteEnquiry(enquiry.enquiry_Id)">Rejected</button>
         </td>
       </tr>
     </tbody>

@@ -6,7 +6,9 @@ const routes: Routes = [
   {
     path: '', component: DashboardViewComponent, children: [
       { path: 'ADMIN', loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule) },
-      { path: 'CRM', loadChildren: () => import('../crm/crm.module').then(c => c.CRMModule) }
+      { path: 'CRM', loadChildren: () => import('../crm/crm.module').then(c => c.CRMModule) },
+      { path: 'OE', loadChildren: () => import('../oe/oe.module').then(c => c.OEModule) }
+
     ]
   }
 ];

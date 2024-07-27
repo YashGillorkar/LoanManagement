@@ -7,60 +7,80 @@ body {
 }
 
 header {
-    background: #4CAF50;
+    background-color: #2d3843; /* Darker shade for contrast */
     color: white;
-    padding: 1em 0;
+    padding: 20px;
     text-align: center;
 }
 
-h1 {
-    margin: 0;
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Added to position the background image */
 }
 
-section {
-    padding: 1em 2em;
-    background: white;
-    margin: 1em auto;
-    max-width: 800px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 5px;
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../../assets/car.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.1; /* Adjust the opacity of the background image */
+    z-index: -1; /* Send the background image behind the content */
+}
+
+.purpose, .eligibility, .quantum, .margin, .repayment, .moratorium, .interest-processing, .prepayment, .security, .guarantee, .emi-calculator {
+    margin-bottom: 20px;
 }
 
 h2 {
-    color: #4CAF50;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    color: #007bff;
 }
 
 ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 5px 0;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1em;
 }
 
-th, td {
+table th, table td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
 }
 
-th {
-    background-color: #4CAF50;
+table th {
+    background-color: #007bff;
     color: white;
 }
 
+table td {
+    background-color: #f9f9f9;
+}
+
 a {
-    color: #4CAF50;
+    color: #007bff;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-}
-
-p {
-    margin: 0.5em 0;
 }

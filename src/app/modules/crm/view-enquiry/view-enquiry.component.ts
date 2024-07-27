@@ -15,8 +15,10 @@ export class ViewEnquiryComponent implements OnInit {
     this.getAllData();
   }
 
+  sendToOe:string = 'Send To OE';
+
   getAllData(): void {
-    this.enquiryService.getAllEnquiries()
+    this.enquiryService.getAllEnquiriesByStatus("Register")
       .subscribe((res)=>{
         this.allEnquiries = res;
      })
@@ -26,7 +28,7 @@ export class ViewEnquiryComponent implements OnInit {
     this.enquiryService.deleteSingleEnquiry(id).subscribe(
       (response: any) => {
         console.log('Enquiry deleted successfully', response);
-        this.getAllData(); // Refresh the list after deletion
+        this.getAllData(); 
       },
       error => {
         console.error('Error deleting enquiry', error);
@@ -35,6 +37,8 @@ export class ViewEnquiryComponent implements OnInit {
   }
 
   editEnquiry(id: string): void {
+    this.enquiryService.updateEnquiryStatus(id,this.sendToOe).subscribe();
     console.log('Edit enquiry', id);
+    console.log('Edit enquiry', this.sendToOe);
   }
 }

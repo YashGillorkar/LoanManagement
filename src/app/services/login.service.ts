@@ -11,15 +11,15 @@ export class LoginService {
 
   public getAdmin(username,password):Observable<any>
   {
-    return this.http.get(`http://localhost:8080/getAdmin/${username}/${password}`)
+    return this.http.get(`http://localhost:4444/getAdmin/${username}/${password}`)
   }
 
   public postEmployee( emp:any){
-    return this.http.post(`http://localhost:8080/saveAdmin` , emp)
+    return this.http.post(`http://localhost:4444/saveAdmin` , emp)
   }
 
   public getAllData():Observable<any>
   {
-    return this.http.get(`http://localhost:8080/getAll`);
+    return this.http.get(`http://localhost:4444/getAll`);
   }
 }

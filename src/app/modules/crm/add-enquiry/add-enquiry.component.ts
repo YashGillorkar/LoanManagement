@@ -30,6 +30,7 @@ export class AddEnquiryComponent implements OnInit {
     if (this.enquiryForm.valid) {
       this.enquiryService.postEnquiry(this.enquiryForm.value).subscribe(
         response => {
+          alert("Enquiry submitted successfully")
           console.log('Enquiry submitted successfully', response);
         },
         error => {
@@ -39,5 +40,6 @@ export class AddEnquiryComponent implements OnInit {
     } else {
       console.log('Form is invalid');
     }
+    this.enquiryForm.reset();
   }
 }

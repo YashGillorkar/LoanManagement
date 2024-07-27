@@ -10,6 +10,10 @@ export class UserOption {
           { label: 'Add Enquiry', link: 'add-enquiry' },
           { label: 'View Enquiry', link: 'view-enquiry' },
           { label: 'View Verfied Enqurires', link: 'verfied-enquires' }
+        ],
+        "OE":[
+          { label: 'Verify Enquiry', link: 'verify-enquiry'},
+          { label: 'Verify LoanForm', link: 'verifyloan-enquiry'}
         ]
       }
     ];

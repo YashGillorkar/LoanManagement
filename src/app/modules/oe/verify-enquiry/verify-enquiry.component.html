@@ -12,7 +12,8 @@
           <th>Alternate Contact</th>
           <th>Age</th>
           <th>PAN</th>
-          <th>Enquiry Status</th>
+          <th>Cibil Score</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +27,14 @@
           <td>{{ enquiry.alternateContactNumber }}</td>
           <td>{{ enquiry.age }}</td>
           <td>{{ enquiry.panCardNumber }}</td>
-          <td>{{enquiry.enquiryStatus}}</td>
+          <td>
+            {{ showCibil ? enquiry.cibilDetails.cibil_score : 0 }}
+          </td>
+          <td>
+            <button (click)="getCibil()">Check Cibil Score</button>
+            <button (click)="clickApproved(enquiry.enquiry_Id )">Approved</button>
+            <button (click)="rejectedEnquiry(enquiry.enquiry_Id)">Rejected</button>
+          </td>
         </tr>
       </tbody>
     </table>
