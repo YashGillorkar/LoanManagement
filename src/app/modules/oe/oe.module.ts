@@ -10,7 +10,7 @@ import { VerifyloanEnquiryComponent } from './verifyloan-enquiry/verifyloan-enqu
   declarations: [
     VerifyEnquiryComponent,
     VerifyloanEnquiryComponent
-  ],
+    ],
   imports: [
     CommonModule,
     OERoutingModule

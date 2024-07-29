@@ -13,6 +13,7 @@
           <th>Age</th>
           <th>PAN</th>
           <th>Enquiry Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -27,7 +28,9 @@
           <td>{{ enquiry.age }}</td>
           <td>{{ enquiry.panCardNumber }}</td>
           <td>{{enquiry.enquiryStatus}}</td>
-        </tr>
+          <button routerLink="/dashboard/CRM/loan-application/{{enquiry.enquiry_Id}}" class="apply-loan-button">
+            Apply For Loan
+          </button>
       </tbody>
     </table>
   </div>

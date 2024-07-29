@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EnquiryService } from '../../../services/enquiry.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-verfied-enquires',
@@ -10,7 +11,7 @@ export class ViewVerfiedEnquiresComponent {
 
   allEnquiries:any =[];
 
-  constructor(private enquiryService: EnquiryService) {}
+  constructor(private enquiryService: EnquiryService, private router:Router) {}
 
   ngOnInit(): void {
     this.getAllData();
@@ -21,6 +22,10 @@ export class ViewVerfiedEnquiresComponent {
       .subscribe((res)=>{
         this.allEnquiries = res;
      })
+  }
+
+  applyToLoan(id: string) {
+    this.router.navigateByUrl(`/dashboard/CRM/loan-application/${id}`);
   }
 
 }

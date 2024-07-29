@@ -9,7 +9,8 @@ export class UserOption {
         "CRM": [
           { label: 'Add Enquiry', link: 'add-enquiry' },
           { label: 'View Enquiry', link: 'view-enquiry' },
-          { label: 'View Verfied Enqurires', link: 'verfied-enquires' }
+          { label: 'View Verfied Enqurires', link: 'verfied-enquires' },
+          { label:  'Loan Applications', link:'loan-application'}
         ],
         "OE":[
           { label: 'Verify Enquiry', link: 'verify-enquiry'},

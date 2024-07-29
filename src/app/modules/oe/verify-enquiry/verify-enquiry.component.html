@@ -1,42 +1,39 @@
 <div class="enquiry-list">
-    <h2>Enquiry List</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>First Name</th>
-          <th>Middle Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Contact Number</th>
-          <th>Alternate Contact</th>
-          <th>Age</th>
-          <th>PAN</th>
-          <th>Cibil Score</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let enquiry of allEnquiries">
-          <td>{{ enquiry.enquiry_Id }}</td>
-          <td>{{ enquiry.first_Name }}</td>
-          <td>{{ enquiry.middle_Name }}</td>
-          <td>{{ enquiry.last_Name }}</td>
-          <td>{{ enquiry.applicant_EmailId }}</td>
-          <td>{{ enquiry.contact_Number }}</td>
-          <td>{{ enquiry.alternateContactNumber }}</td>
-          <td>{{ enquiry.age }}</td>
-          <td>{{ enquiry.panCardNumber }}</td>
-          <td>
-            {{ showCibil ? enquiry.cibilDetails.cibil_score : 0 }}
-          </td>
-          <td>
-            <button (click)="getCibil()">Check Cibil Score</button>
-            <button (click)="clickApproved(enquiry.enquiry_Id )">Approved</button>
-            <button (click)="rejectedEnquiry(enquiry.enquiry_Id)">Rejected</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h1 >Enquiry List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Contact Number</th>
+        <th>Alternate Contact</th>
+        <th>Age</th>
+        <th>PAN</th>
+        <th>Cibil Score</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let enquiry of allEnquiries">
+        <td>{{ enquiry.enquiry_Id }}</td>
+        <td>{{ enquiry.first_Name }}</td>
+        <td>{{ enquiry.middle_Name }}</td>
+        <td>{{ enquiry.last_Name }}</td>
+        <td>{{ enquiry.applicant_EmailId }}</td>
+        <td>{{ enquiry.contact_Number }}</td>
+        <td>{{ enquiry.alternateContactNumber }}</td>
+        <td>{{ enquiry.age }}</td>
+        <td>{{ enquiry.panCardNumber }}</td>
+        <td>{{ cibilScores[enquiry.enquiry_Id] }}</td>
+        <td>
+          <button (click)="getCibil(enquiry.enquiry_Id)">Check Cibil Score</button>
+          <button (click)="clickApproved(enquiry.enquiry_Id)">Approved</button>
+          <button (click)="rejectedEnquiry(enquiry.enquiry_Id)">Rejected</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

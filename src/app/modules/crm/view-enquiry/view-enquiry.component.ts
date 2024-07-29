@@ -22,6 +22,7 @@ export class ViewEnquiryComponent implements OnInit {
       .subscribe((res)=>{
         this.allEnquiries = res;
      })
+    
   }
 
   deleteEnquiry(id: string): void {
@@ -39,6 +40,7 @@ export class ViewEnquiryComponent implements OnInit {
   editEnquiry(id: string): void {
     this.enquiryService.updateEnquiryStatus(id,this.sendToOe).subscribe();
     console.log('Edit enquiry', id);
-    console.log('Edit enquiry', this.sendToOe);
+    console.log('Enquiry Status Change to', this.sendToOe);
+    location.reload();
   }
 }

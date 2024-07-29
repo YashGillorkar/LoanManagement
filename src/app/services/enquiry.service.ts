@@ -64,4 +64,8 @@ export class EnquiryService {
     return this.http.put<ResponseDto>(`${this.baseUrl}/loanRejected/${enquiryId}/${enquiryStatus}`,{});
   }
 
+  getSingleCibil(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/getCibilById/${id}`);
+  }
+
 }

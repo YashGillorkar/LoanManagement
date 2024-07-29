@@ -51,4 +51,18 @@
   .enquiry-list td button:hover {
     opacity: 0.8;
   }
+  .apply-loan-button {
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 5px 10px; /* Padding for spacing */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .apply-loan-button:hover {
+    background-color: #38a851; /* Darker blue on hover */
+  }
   

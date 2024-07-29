@@ -1,45 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EnquiryService } from '../../../services/enquiry.service';
 
 @Component({
   selector: 'app-verify-enquiry',
   templateUrl: './verify-enquiry.component.html',
-  styleUrl: './verify-enquiry.component.css'
+  styleUrls: ['./verify-enquiry.component.css']
 })
-export class VerifyEnquiryComponent {
+export class VerifyEnquiryComponent implements OnInit {
   allEnquiries: any = [];
-  showCibil:boolean ;
+  cibilScores: { [key: string]: number } = {};
 
   constructor(private enquiryService: EnquiryService) {}
 
   ngOnInit(): void {
     this.getAllData();
-    this.showCibil =false
   }
 
-
+  getCibil(id: string) {
+    this.enquiryService.getSingleCibil(id).subscribe(response => {
+      this.cibilScores[id] = response.cibil_score;
+    });
+  }
 
   getAllData(): void {
     this.enquiryService.getAllEnquiriesByStatus("Send To OE")
-      .subscribe((res)=>{
+      .subscribe(res => {
         this.allEnquiries = res;
-        showCibil: false
-     })
+        // Initialize all cibil scores to zero
+        this.allEnquiries.forEach((enquiry: any) => {
+          this.cibilScores[enquiry.enquiry_Id] = 0;
+        });
+      });
   }
-  
+
   clickApproved(id: string) {
-   this.enquiryService.enquiryApprovedStatus(id,"Approved").subscribe();
-   console.log("Approved");
+    this.enquiryService.enquiryApprovedStatus(id, "Approved").subscribe();
+    console.log("Approved");
+    location.reload();
   }
 
-  rejected:"Rejected";
-  
   rejectedEnquiry(id: string) {
-    this.enquiryService.enquiryRejectedStatus(id,this.rejected).subscribe();
+    this.enquiryService.enquiryRejectedStatus(id, "Rejected").subscribe();
     console.log("Rejected");
-  }
-
-  getCibil() {
-    this.showCibil = true
+    location.reload();
   }
 }

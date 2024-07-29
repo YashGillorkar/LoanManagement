@@ -1,0 +1,285 @@
+
+<body>
+  <div class="container">
+    <h2>Customer Loan Application</h2>
+    <form [formGroup]="customerLoanForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="customer_First_Name">First Name</label>
+        <input id="customer_First_Name" formControlName="customer_First_Name">
+      </div>
+      <div>
+        <label for="customer_Middle_Name">Middle Name</label>
+        <input id="customer_Middle_Name" formControlName="customer_Middle_Name">
+      </div>
+      <div>
+        <label for="customer_Last_Name">Last Name</label>
+        <input id="customer_Last_Name" formControlName="customer_Last_Name">
+      </div>
+      <div>
+        <label for="customerDateOfBirth">Date of Birth</label>
+        <input id="customerDateOfBirth" type="date" formControlName="customerDateOfBirth">
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input id="age" type="number" formControlName="age">
+      </div>
+      <div>
+        <label for="gender">Gender</label>
+        <select id="gender" formControlName="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="customerEmail">Email</label>
+        <input id="customerEmail" type="email" formControlName="customerEmail">
+      </div>
+      <div>
+        <label for="customer_Mobile_Number">Mobile Number</label>
+        <input id="customer_Mobile_Number" formControlName="customer_Mobile_Number">
+      </div>
+      <div>
+        <label for="customer_Additional_Mobile_Number">Additional Mobile Number</label>
+        <input id="customer_Additional_Mobile_Number" formControlName="customer_Additional_Mobile_Number">
+      </div>
+      <div>
+        <label for="customerAmountPaidForCar">Amount Paid for Car</label>
+        <input id="customerAmountPaidForCar" type="number" formControlName="customerAmountPaidForCar">
+      </div>
+      <div>
+        <label for="customerTotalLoanRequired">Total Loan Required</label>
+        <input id="customerTotalLoanRequired" type="number" formControlName="customerTotalLoanRequired">
+      </div>
+      <div>
+        <label for="customerPanCard">PAN Card</label>
+        <input id="customerPanCard" formControlName="customerPanCard">
+      </div>
+      <div>
+        <label for="loanstatus">Loan Status</label>
+        <input id="loanstatus" formControlName="loanstatus">
+      </div>
+      <fieldset formGroupName="accountDetails">
+        <legend>Account Details</legend>
+        <div>
+          <label for="accountType">Account Type</label>
+          <input id="accountType" formControlName="accountType">
+        </div>
+        <div>
+          <label for="accountBalance">Account Balance</label>
+          <input id="accountBalance" type="number" formControlName="accountBalance">
+        </div>
+        <div>
+          <label for="accountStatus">Account Status</label>
+          <input id="accountStatus" formControlName="accountStatus">
+        </div>
+        <div>
+          <label for="accountNumber">Account Number</label>
+          <input id="accountNumber" formControlName="accountNumber">
+        </div>
+      </fieldset>
+      <fieldset formGroupName="allpersondoc">
+        <legend>All Personal Documents</legend>
+        <div>
+          <label for="addressProof">Address Proof</label>
+          <input id="addressProof" type="file" formControlName="addressProof">
+        </div>
+        <div>
+          <label for="panCard">PAN Card</label>
+          <input id="panCard" type="file" formControlName="panCard">
+        </div>
+        <div>
+          <label for="incomeTax">Income Tax</label>
+          <input id="incomeTax" type="file" formControlName="incomeTax">
+        </div>
+        <div>
+          <label for="addharCard">Aadhaar Card</label>
+          <input id="addharCard" type="file" formControlName="addharCard">
+        </div>
+        <div>
+          <label for="photo">Photo</label>
+          <input id="photo" type="file" formControlName="photo">
+        </div>
+        <div>
+          <label for="signture">Signature</label>
+          <input id="signture" type="file" formControlName="signture">
+        </div>
+        <div>
+          <label for="bankCheque">Bank Cheque</label>
+          <input id="bankCheque" type="file" formControlName="bankCheque">
+        </div>
+        <div>
+          <label for="salarySlips">Salary Slips</label>
+          <input id="salarySlips" type="file" formControlName="salarySlips">
+        </div>
+      </fieldset>
+      <fieldset formGroupName="customeraddress">
+        <legend>Customer Address</legend>
+        <fieldset formGroupName="permanentAddress">
+          <legend>Permanent Address</legend>
+          <div>
+            <label for="permanentAreaName">Area Name</label>
+            <input id="permanentAreaName" formControlName="areaName">
+          </div>
+          <div>
+            <label for="permanentCityName">City Name</label>
+            <input id="permanentCityName" formControlName="cityName">
+          </div>
+          <div>
+            <label for="permanentDistrict">District</label>
+            <input id="permanentDistrict" formControlName="district">
+          </div>
+          <div>
+            <label for="permanentState">State</label>
+            <input id="permanentState" formControlName="state">
+          </div>
+          <div>
+            <label for="permanentPincode">Pincode</label>
+            <input id="permanentPincode" type="number" formControlName="pincode">
+          </div>
+          <div>
+            <label for="permanentHouseNumber">House Number</label>
+            <input id="permanentHouseNumber" type="number" formControlName="houseNumber">
+          </div>
+          <div>
+            <label for="permanentStreetName">Street Name</label>
+            <input id="permanentStreetName" formControlName="streetName">
+          </div>
+        </fieldset>
+
+        <fieldset formGroupName="localAddress">
+          <legend>Local Address</legend>
+          <div>
+            <label for="localAreaName">Area Name</label>
+            <input id="localAreaName" formControlName="areaName">
+          </div>
+          <div>
+            <label for="localCityName">City Name</label>
+            <input id="localCityName" formControlName="cityName">
+          </div>
+          <div>
+            <label for="localDistrict">District</label>
+            <input id="localDistrict" formControlName="district">
+          </div>
+          <div>
+            <label for="localState">State</label>
+            <input id="localState" formControlName="state">
+          </div>
+          <div>
+            <label for="localPincode">Pincode</label>
+            <input id="localPincode" type="number" formControlName="pincode">
+          </div>
+          <div>
+            <label for="localHouseNumber">House Number</label>
+            <input id="localHouseNumber" type="number" formControlName="houseNumber">
+          </div>
+          <div>
+            <label for="localStreetName">Street Name</label>
+            <input id="localStreetName" formControlName="streetName">
+          </div>
+        </fieldset>
+      </fieldset>
+      <fieldset formGroupName="customercibilscore">
+        <legend>Customer CIBIL Score</legend>
+        <div>
+          <label for="cibil_score">CIBIL Score</label>
+          <input id="cibil_score" type="number" formControlName="cibil_score">
+        </div>
+        <div>
+          <label for="remark">Remark</label>
+          <input id="remark" formControlName="remark">
+        </div>
+        <div>
+          <label for="isApplicable">Is Applicable</label>
+          <input id="isApplicable" type="checkbox" formControlName="isApplicable">
+        </div>
+      </fieldset>
+      <fieldset formGroupName="customermedicalinfo">
+        <legend>Customer Medical Info</legend>
+        <div>
+          <label for="patientId">Patient ID</label>
+          <input id="patientId" formControlName="patientId">
+        </div>
+        <div>
+          <label for="professionsalPatientName">Patient Name</label>
+          <input id="professionsalPatientName" formControlName="professionsalPatientName">
+        </div>
+        <div>
+          <label for="billingDate">Billing Date</label>
+          <input id="billingDate" type="date" formControlName="billingDate">
+        </div>
+        <div>
+          <label for="loanAmount">Loan Amount</label>
+          <input id="loanAmount" type="number" formControlName="loanAmount">
+        </div>
+        <div>
+          <label for="treatment">Treatment</label>
+          <input id="treatment" formControlName="treatment">
+        </div>
+      </fieldset>
+      <fieldset formGroupName="familydependentinfo">
+        <legend>Family Dependent Info</legend>
+        <div>
+          <label for="noOfFamilyMember">No of Family Members</label>
+          <input id="noOfFamilyMember" type="number" formControlName="noOfFamilyMember">
+        </div>
+        <div>
+          <label for="noOfChild">No of Children</label>
+          <input id="noOfChild" type="number" formControlName="noOfChild">
+        </div>
+        <div>
+          <label for="maritalStatus">Marital Status</label>
+          <input id="maritalStatus" formControlName="maritalStatus">
+        </div>
+        <div>
+          <label for="dependentMember">Dependent Member</label>
+          <input id="dependentMember" formControlName="dependentMember">
+        </div>
+        <div>
+          <label for="familyIncome">Family Income</label>
+          <input id="familyIncome" type="number" formControlName="familyIncome">
+        </div>
+      </fieldset>
+      <fieldset formGroupName="gurantordetail">
+        <legend>Guarantor Details</legend>
+        <div>
+          <label for="guarantorName">Guarantor Name</label>
+          <input id="guarantorName" formControlName="guarantorName">
+        </div>
+        <div>
+          <label for="guarantorDateOfBirth">Guarantor Date of Birth</label>
+          <input id="guarantorDateOfBirth" type="date" formControlName="guarantorDateOfBirth">
+        </div>
+        <div>
+          <label for="guarantorRelationshipWithCustomer">Relationship with Customer</label>
+          <input id="guarantorRelationshipWithCustomer" formControlName="guarantorRelationshipWithCustomer">
+        </div>
+        <div>
+          <label for="guarantorMobileNumber">Guarantor Mobile Number</label>
+          <input id="guarantorMobileNumber" formControlName="guarantorMobileNumber">
+        </div>
+        <div>
+          <label for="guarantorAdharCardNo">Guarantor Aadhaar Card No</label>
+          <input id="guarantorAdharCardNo" formControlName="guarantorAdharCardNo">
+        </div>
+        <div>
+          <label for="guarantorMortgageDetails">Guarantor Mortgage Details</label>
+          <input id="guarantorMortgageDetails" formControlName="guarantorMortgageDetails">
+        </div>
+        <div>
+          <label for="guarantorJobDetails">Guarantor Job Details</label>
+          <input id="guarantorJobDetails" formControlName="guarantorJobDetails">
+        </div>
+        <div>
+          <label for="guarantorLoaclAddress">Guarantor Local Address</label>
+          <input id="guarantorLoaclAddress" formControlName="guarantorLoaclAddress">
+        </div>
+        <div>
+          <label for="guarantorPermanentAddress">Guarantor Permanent Address</label>
+          <input id="guarantorPermanentAddress" formControlName="guarantorPermanentAddress">
+        </div>
+      </fieldset>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>

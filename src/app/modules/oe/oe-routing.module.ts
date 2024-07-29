@@ -5,7 +5,7 @@ import { VerifyloanEnquiryComponent } from './verifyloan-enquiry/verifyloan-enqu
 
 const routes: Routes = [
   { path:'verify-enquiry' , component:VerifyEnquiryComponent},
-  { path:'verifyloan-enquiry' , component:VerifyloanEnquiryComponent},
+  { path:'verifyloan-enquiry' , component:VerifyloanEnquiryComponent}
 ];
 
 @NgModule({
