@@ -30,14 +30,19 @@ export class EnquiryComponent implements OnInit {
     if (this.enquiryForm.valid) {
       this.enquiryService.postEnquiry(this.enquiryForm.value).subscribe(
         response => {
+          alert('Enquiry submitted successfully');
           console.log('Enquiry submitted successfully', response);
         },
         error => {
+          alert('Error submitting enquiry');
           console.error('Error submitting enquiry', error);
         }
       );
     } else {
       console.log('Form is invalid');
+      alert('Invalid Form');
+     
     }
+    location.reload();
   }
 }
