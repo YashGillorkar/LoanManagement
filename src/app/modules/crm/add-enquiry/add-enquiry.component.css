@@ -1,3 +1,4 @@
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -47,4 +48,10 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 5px;
 }

@@ -1,48 +1,73 @@
 <div class="container">
-    <h2>Loan Application Form</h2>
-  
-    <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" formControlName="first_Name" required>
+  <h2>Loan Application Form</h2>
+
+  <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="first_Name" required>
+      <div *ngIf="enquiryForm.get('first_Name').invalid && (enquiryForm.get('first_Name').dirty || enquiryForm.get('first_Name').touched)" class="error">
+        <div *ngIf="enquiryForm.get('first_Name').errors?.['required']">First Name is required.</div>
       </div>
-  
-      <div class="form-group">
-        <label for="middleName">Middle Name:</label>
-        <input type="text" id="middleName" formControlName="middle_Name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="middleName">Middle Name:</label>
+      <input type="text" id="middleName" formControlName="middle_Name">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="last_Name" required>
+      <div *ngIf="enquiryForm.get('last_Name').invalid && (enquiryForm.get('last_Name').dirty || enquiryForm.get('last_Name').touched)" class="error">
+        <div *ngIf="enquiryForm.get('last_Name').errors?.['required']">Last Name is required.</div>
       </div>
-  
-      <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" formControlName="last_Name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="emailId">Email Id:</label>
+      <input type="email" id="emailId" formControlName="applicant_EmailId" required>
+      <div *ngIf="enquiryForm.get('applicant_EmailId').invalid && (enquiryForm.get('applicant_EmailId').dirty || enquiryForm.get('applicant_EmailId').touched)" class="error">
+        <div *ngIf="enquiryForm.get('applicant_EmailId').errors?.['required']">Email is required.</div>
+        <div *ngIf="enquiryForm.get('applicant_EmailId').errors?.['email']">Invalid email address.</div>
       </div>
-  
-      <div class="form-group">
-        <label for="emailId">Email Id:</label>
-        <input type="email" id="emailId" formControlName="applicant_EmailId" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contactNumber">Contact Number:</label>
+      <input type="text" id="contactNumber" formControlName="contact_Number" required>
+      <div *ngIf="enquiryForm.get('contact_Number').invalid && (enquiryForm.get('contact_Number').dirty || enquiryForm.get('contact_Number').touched)" class="error">
+        <div *ngIf="enquiryForm.get('contact_Number').errors?.['required']">Contact Number is required.</div>
+        <div *ngIf="enquiryForm.get('contact_Number').errors?.['pattern']">Invalid contact number. Must be 10 digits.</div>
       </div>
-  
-      <div class="form-group">
-        <label for="contactNumber">Contact Number:</label>
-        <input type="text" id="contactNumber" formControlName="contact_Number" required>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" formControlName="age" required>
+      <div *ngIf="enquiryForm.get('age').invalid && (enquiryForm.get('age').dirty || enquiryForm.get('age').touched)" class="error">
+        <div *ngIf="enquiryForm.get('age').errors?.['required']">Age is required.</div>
+        <div *ngIf="enquiryForm.get('age').errors?.['min']">Minimum age is 18.</div>
+        <div *ngIf="enquiryForm.get('age').errors?.['max']">Maximum age is 65.</div>
       </div>
-  
-      <div class="form-group">
-        <label for="age">Age:</label>
-        <input type="number" id="age" formControlName="age" required>
+    </div>
+
+    <div class="form-group">
+      <label for="alternateContactNumber">Alternate Contact Number:</label>
+      <input type="text" id="alternateContactNumber" formControlName="alternateContactNumber">
+      <div *ngIf="enquiryForm.get('alternateContactNumber').invalid && (enquiryForm.get('alternateContactNumber').dirty || enquiryForm.get('alternateContactNumber').touched)" class="error">
+        <div *ngIf="enquiryForm.get('alternateContactNumber').errors?.['pattern']">Invalid alternate contact number. Must be 10 digits.</div>
       </div>
-  
-      <div class="form-group">
-        <label for="alternateContactNumber">Alternate Contact Number:</label>
-        <input type="text" id="alternateContactNumber" formControlName="alternateContactNumber" required>
+    </div>
+
+    <div class="form-group">
+      <label for="panCard">PAN Card:</label>
+      <input type="text" id="panCard" formControlName="panCardNumber" required>
+      <div *ngIf="enquiryForm.get('panCardNumber').invalid && (enquiryForm.get('panCardNumber').dirty || enquiryForm.get('panCardNumber').touched)" class="error">
+        <div *ngIf="enquiryForm.get('panCardNumber').errors?.['required']">PAN Card is required.</div>
+        <div *ngIf="enquiryForm.get('panCardNumber').errors?.['pattern']">Invalid PAN Card number.</div>
       </div>
-  
-      <div class="form-group">
-        <label for="panCard">PAN Card:</label>
-        <input type="text" id="panCard" formControlName="panCardNumber" required>
-      </div>
-  
-      <input type="submit" value="Submit">
-    </form>
-  </div>
-  
+    </div>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
