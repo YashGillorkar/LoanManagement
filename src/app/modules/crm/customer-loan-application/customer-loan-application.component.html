@@ -82,35 +82,43 @@
         <legend>All Personal Documents</legend>
         <div>
           <label for="addressProof">Address Proof</label>
-          <input id="addressProof" type="file" formControlName="addressProof">
+          <input id="addressProof"  (change)="OnAddressProof($event)" type="file">
+          <img [src]="img1" height="100">
         </div>
         <div>
           <label for="panCard">PAN Card</label>
-          <input id="panCard" type="file" formControlName="panCard">
+          <input id="panCard" (change)="OnPanCard($event)" type="file" >
+          <img [src]="img2" height="100">
         </div>
         <div>
           <label for="incomeTax">Income Tax</label>
-          <input id="incomeTax" type="file" formControlName="incomeTax">
+          <input id="incomeTax" (change)="OnIncome($event)" type="file" >
+          <img [src]="img3" height="100">
         </div>
         <div>
           <label for="addharCard">Aadhaar Card</label>
-          <input id="addharCard" type="file" formControlName="addharCard">
+          <input id="addharCard" type="file" (change)="OnAadhar($event)" >
+          <img [src]="img4" height="100">
         </div>
         <div>
           <label for="photo">Photo</label>
-          <input id="photo" type="file" formControlName="photo">
+          <input id="photo" type="file" (change)="OnPhoto($event)">
+          <img [src]="img5" height="100">
         </div>
         <div>
           <label for="signture">Signature</label>
-          <input id="signture" type="file" formControlName="signture">
+          <input id="signture" type="file" (change)="OnSignature($event)">
+          <img [src]="img6" height="100">
         </div>
         <div>
           <label for="bankCheque">Bank Cheque</label>
-          <input id="bankCheque" type="file" formControlName="bankCheque">
+          <input id="bankCheque" type="file" (change)="OnBank($event)">
+          <img [src]="img7" height="100">
         </div>
         <div>
           <label for="salarySlips">Salary Slips</label>
-          <input id="salarySlips" type="file" formControlName="salarySlips">
+          <input id="salarySlips" type="file" (change)="OnSalarySlip($event)">
+          <img [src]="img8" height="100">
         </div>
       </fieldset>
       <fieldset formGroupName="customeraddress">

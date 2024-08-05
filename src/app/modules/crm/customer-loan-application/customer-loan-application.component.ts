@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EnquiryService } from '../../../services/enquiry.service';
 import { ActivatedRoute } from '@angular/router';
+import { LoanApplicationService } from '../../../services/loan-application.service';
 
 @Component({
   selector: 'app-customer-loan-application',
@@ -13,7 +14,12 @@ export class CustomerLoanApplicationComponent implements OnInit {
 
   public customerLoanForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private enquiryService: EnquiryService,private activeRouter: ActivatedRoute,) { }
+  constructor(
+    private fb: FormBuilder, 
+    private enquiryService: EnquiryService,
+    private activeRouter: ActivatedRoute, 
+    private loanApplicationService: LoanApplicationService
+  ) { }
 
   ngOnInit(): void {
     this.customerLoanForm = this.fb.group({
@@ -37,14 +43,7 @@ export class CustomerLoanApplicationComponent implements OnInit {
         accountNumber: ['', Validators.required],
       }),
       allpersondoc: this.fb.group({
-        addressProof: ['', Validators.required],
-        panCard: ['', Validators.required],
-        incomeTax: ['', Validators.required],
-        addharCard: ['', Validators.required],
-        photo: ['', Validators.required],
-        signture: ['', Validators.required],
-        bankCheque: ['', Validators.required],
-        salarySlips: ['', Validators.required],
+        documentId: [],
       }),
       customeraddress: this.fb.group({
         permanentAddress: this.fb.group({
@@ -98,11 +97,34 @@ export class CustomerLoanApplicationComponent implements OnInit {
         guarantorPermanentAddress: ['', Validators.required],
       }),
     });
-   this.patchEnquiryData();
+
+    this.patchEnquiryData();
   }
 
+  data: any;
+  flag: boolean = false;
+  res_catcher: any;
+  reader = new FileReader;
+  img1: any;
+  img2: any;
+  img3: any;
+  img4: any;
+  img5: any;
+  img6: any;
+  img7: any;
+  img8: any;
+
+  addressProof: any;
+  panCard: any;
+  incomeTax: any;
+  addharCard: any;
+  photo: any;
+  signture: any;
+  bankCheque: any;
+  salarySlips: any;
+
   patchEnquiryData() {
-    this.enquiryService.getSingleData( this.activeRouter.snapshot.params['id']).subscribe(data => {
+    this.enquiryService.getSingleData(this.activeRouter.snapshot.params['id']).subscribe(data => {
       console.log(data);
       this.customerLoanForm.patchValue({
         customer_First_Name: data.first_Name,
@@ -121,15 +143,69 @@ export class CustomerLoanApplicationComponent implements OnInit {
         }
       });
     });
-
   }
-  
 
   onSubmit() {
-    if (this.customerLoanForm.valid) {
-      console.log(this.customerLoanForm.value);
-    } else {
-      console.log('Form is invalid');
-    }
+    const formData = new FormData();
+    formData.append('customerDetails', JSON.stringify(this.customerLoanForm.value));
+    formData.append('addrprof', this.addressProof);
+    formData.append('pan', this.panCard);
+    formData.append('incometax', this.incomeTax);
+    formData.append('adhar', this.addharCard);
+    formData.append('photo', this.photo);
+    formData.append('signature', this.signture);
+    formData.append('bankCheque', this.bankCheque);
+    formData.append('slips', this.salarySlips);
+    this.loanApplicationService.postLoanApplication(formData).subscribe();
+    alert("Submited Sucessfully");
   }
+
+  OnAddressProof(event: any) {
+    this.addressProof = event.target.files[0];
+    this.reader.onload = e => this.img1 = this.reader.result;
+    this.reader.readAsDataURL(this.addressProof);
+  }
+
+  OnPanCard(event: any) {
+    this.panCard = event.target.files[0];
+    this.reader.onload = e => this.img2 = this.reader.result;
+    this.reader.readAsDataURL(this.panCard);
+  }
+
+  OnIncome(event: any) {
+    this.incomeTax = event.target.files[0];
+    this.reader.onload = e => this.img3 = this.reader.result;
+    this.reader.readAsDataURL(this.incomeTax);
+  }
+
+  OnAadhar(event: any) {
+    this.addharCard = event.target.files[0];
+    this.reader.onload = e => this.img4 = this.reader.result;
+    this.reader.readAsDataURL(this.addharCard);
+  }
+
+  OnPhoto(event: any) {
+    this.photo = event.target.files[0];
+    this.reader.onload = e => this.img5 = this.reader.result;
+    this.reader.readAsDataURL(this.photo);
+  }
+
+  OnSignature(event: any) {
+    this.signture = event.target.files[0];
+    this.reader.onload = e => this.img6 = this.reader.result;
+    this.reader.readAsDataURL(this.signture);
+  }
+
+  OnBank(event: any) {
+    this.bankCheque = event.target.files[0];
+    this.reader.onload = e => this.img7 = this.reader.result;
+    this.reader.readAsDataURL(this.bankCheque);
+  }
+
+  OnSalarySlip(event: any) {
+    this.salarySlips = event.target.files[0];
+    this.reader.onload = e => this.img8 = this.reader.result;
+    this.reader.readAsDataURL(this.salarySlips);
+  }
+
 }
